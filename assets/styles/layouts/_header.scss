@@ -1,0 +1,37 @@
+.banner {
+
+  background-color: $dark-blue;
+  padding: 0px;
+  margin: 0px;
+
+  .banner-image {
+    background-image: url('../images/header-small.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 200px;
+
+    @media (min-width: 400px) { 
+      background-image: url('../images/header-med.png');
+      height: 285px;
+    }
+
+    @media (min-width: 992px) { 
+      background-image: url('../images/header.png');
+      height: 285px;
+    }
+  }
+
+  nav {
+    display: none;
+    background-color: $med-blue;
+    height: 50px;
+    line-height: 30px;
+
+    li {
+     display: inline-block; 
+    }
+  }
+}
+
+
+

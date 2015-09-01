@@ -20,6 +20,13 @@ $sage_includes = [
   'lib/extras.php',                // Custom functions
 ];
 
+add_theme_support( 'post-thumbnails' );
+
+function custom_excerpt_length() {
+	return 60;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 foreach ($sage_includes as $file) {
   if (!$filepath = locate_template($file)) {
     trigger_error(sprintf(__('Error locating %s for inclusion', 'sage'), $file), E_USER_ERROR);
@@ -28,3 +35,4 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+

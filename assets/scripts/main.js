@@ -10,6 +10,8 @@
  * always reference jQuery with $, even when in .noConflict() mode.
  * ======================================================================== */
 
+var $ = jQuery;
+
 (function($) {
 
   // Use this variable to set up the common and page specific functions. If you
@@ -71,7 +73,84 @@
     }
   };
 
+
   // Load Events
   $(document).ready(UTIL.loadEvents);
 
-})(jQuery); // Fully reference jQuery after this point.
+
+
+
+})($); // Fully reference jQuery after this point.
+
+
+$(function() {
+  /**
+   * Slider JavaScript
+   */
+   
+  //jQuery Element Definitions
+  var $slider = $('.slider');
+  var $sliderButtonLeft = $('.slider-button-left');
+  var $sliderButtonRight = $('.slider-button-right');
+
+  // Functions
+  var timerFunction = function() {
+    return setInterval(function() {
+      slideLeft();
+    }, 5000);
+  };
+
+  var fadeIn = function() {
+    $(this).animate({opacity: 1});
+  };
+
+  var fadeOut = function() {
+    $(this).animate({opacity: 0.3});
+  };
+
+  var slideLeft = function() {
+    var $slides = $slider.children();
+    var $firstSlide = $slides.first();
+    var slideWidth = $firstSlide.width();
+    $slides.animate({right: slideWidth}, function() {
+      $slider.append($firstSlide);
+      $slides.css('right', 0);
+    });
+  };
+  
+  var slideRight = function() {
+    var $slides = $slider.children();
+    var $lastSlide = $slides.last();
+    var slideWidth = $lastSlide.width();
+    $slider.prepend($lastSlide);
+    $slides.css('right', slideWidth);
+    $slides.animate({right: 0}, function() {
+    });
+  };
+
+  var buttonLeft = function() {
+    slideLeft();
+    clearInterval(timer);
+    timer = timerFunction();
+  };
+
+  var buttonRight = function() {
+    slideRight();
+    clearInterval(timer);
+    timer = timerFunction();
+  };
+
+  // Event Listeners
+  $sliderButtonLeft.on('mouseenter', fadeIn);
+  $sliderButtonLeft.on('mouseleave', fadeOut);
+  $sliderButtonLeft.on('click', buttonLeft);
+  $sliderButtonRight.on('mouseenter', fadeIn);
+  $sliderButtonRight.on('mouseleave', fadeOut);
+  $sliderButtonRight.on('click', buttonRight);
+
+  // Start the timer
+  var timer = timerFunction();
+
+
+
+});
