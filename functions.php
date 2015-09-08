@@ -23,7 +23,7 @@ $sage_includes = [
 add_theme_support( 'post-thumbnails' );
 
 function custom_excerpt_length() {
-	return 60;
+	return 90;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
@@ -35,4 +35,3 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
-

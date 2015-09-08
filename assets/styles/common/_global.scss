@@ -1,3 +1,14 @@
 body {
   background-color: $white-blue;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a:link, a:visited {
+  color: $link-blue;
+}
+
+a:hover {
+  color: $link-hover-blue;
 }

@@ -1,6 +1,6 @@
 .banner {
 
-  background-color: transparent;
+  background-color: $med-blue;
   padding: 0px;
   margin: 0px;
 
@@ -10,12 +10,12 @@
     background-repeat: no-repeat;
     height: 200px;
 
-    @media (min-width: 400px) { 
+    @media (min-width: 400px) {
       background-image: url('../images/header-med.png');
       height: 285px;
     }
 
-    @media (min-width: 992px) { 
+    @media (min-width: 992px) {
       background-image: url('../images/header.png');
       height: 285px;
     }
@@ -28,10 +28,7 @@
     line-height: 30px;
 
     li {
-     display: inline-block; 
+     display: inline-block;
     }
   }
 }
-
-
-
