@@ -7,13 +7,14 @@
   </div>
   <div class="row slider">
     <?php 
+      $temp_query = clone $wp_query;
       $args = array (
         'posts_per_page'=>10,
         'post__not_in' => get_option('sticky_posts')
       );
-      $posts = get_posts($args);
-      foreach ($posts as $post) :
-        setup_postdata($post);
+      query_posts($args);
+      while ( have_posts() ) :
+        the_post();
         $featuredImage = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
     ?>
     
@@ -24,7 +25,8 @@
       </div>
     
       <?php
-        endforeach
+        endwhile;
+        $wp_query = clone $temp_query;
       ?>
   </div>
 </div>
