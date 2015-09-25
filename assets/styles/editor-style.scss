@@ -1,5 +1,22 @@
 @import "main";
 
-body {
+body#tinymce.wp-editor {
   margin: 12px !important;
+  color: red;
+}
+
+img.size-full, img.size-medium, figure, .alignnone {
+  width: 50%;
+  height: 50%;
+  display: block;
+  margin: 10px auto;
+}
+
+figure {
+  img {
+    width:100%;
+  }
+  figcaption {
+    text-align: center;
+  }
 }

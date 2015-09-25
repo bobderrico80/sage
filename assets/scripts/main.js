@@ -84,10 +84,20 @@ var $ = jQuery;
 
 
 $(function() {
+  $('img').each(function(){
+  $(this).removeAttr('width')
+    $(this).removeAttr('height');
+  });
+  $('figure').each(function() {
+    $(this).removeAttr('style');
+  });
+});
+
+$(function() {
   /**
    * Slider JavaScript
    */
-   
+
   //jQuery Element Definitions
   var $slider = $('.slider');
   var $sliderButtonLeft = $('.slider-button-left');
@@ -117,7 +127,7 @@ $(function() {
       $slides.css('right', 0);
     });
   };
-  
+
   var slideRight = function() {
     var $slides = $slider.children();
     var $lastSlide = $slides.last();

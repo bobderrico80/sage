@@ -1,0 +1,9 @@
+.comment-form input[type=submit] {
+  background-color: $med-blue;
+  border-color: $dark-blue;
+
+  &:hover {
+    border-color: $dark-blue;
+    background-color: $link-blue;
+  }
+}
