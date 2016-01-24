@@ -8,6 +8,7 @@
   </header>
   <div class="entry-summary">
     <?php the_excerpt(); ?>
+    <div class="clearfix"></div>
   </div>
 </article>
 <div class="clearfix"></div>

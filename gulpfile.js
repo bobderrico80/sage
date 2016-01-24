@@ -58,8 +58,6 @@ var enabled = {
   maps: !argv.production,
   // Fail styles task on error when `--production`
   failStyleTask: argv.production,
-  // Fail due to JSHint warnings only when `--production`
-  failJSHint: argv.production,
   // Strip debug statments from javascript when `--production`
   stripJSDebug: argv.production
 };
@@ -289,4 +287,8 @@ gulp.task('wiredep', function() {
 // `gulp` - Run a complete build. To compile for production run `gulp --production`.
 gulp.task('default', ['clean'], function() {
   gulp.start('build');
+});
+
+gulp.task('styles-watch', function() {
+  gulp.watch([path.source + 'styles/**/*'], ['styles']);
 });

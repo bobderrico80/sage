@@ -1,0 +1,32 @@
+.home {
+  article {
+    .ssba {
+      float: right;
+    }
+    .ssba:nth-child(1) {
+      display: none;
+    }
+  }
+  article:nth-of-type(even) {
+    .ssba {
+      float: left;
+    }
+    @media (max-width: 768px) {
+      .ssba {
+        float: right;
+      }
+    }
+  }
+}
+
+.single {
+  article {
+    .ssba:nth-of-type(2) {
+      display: none;
+    }
+    .ssba {
+      float: right;
+    }
+  }
+
+}
